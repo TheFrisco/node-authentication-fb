@@ -1,0 +1,9 @@
+node_modules/
+.idea/
+public/components/
+.project
+logs.log
+npm-debug.log
+logs.log
+*.log
+logs.log

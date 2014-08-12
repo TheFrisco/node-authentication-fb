@@ -4,7 +4,8 @@ var express = require('express')
     , GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
     , TwitterStrategy = require('passport-twitter').Strategy
     , passport = require('passport')
-    , config = require('../config/config')
+    , env = process.env.NODE_ENV || 'development'
+    , config = require('../config/config')[env]
     , nodemailer = require("nodemailer")
 
     , smtpTransport = nodemailer.createTransport("SMTP", {
