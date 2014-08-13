@@ -21,7 +21,7 @@ module.exports = function(passport) {
 
     // used to deserialize the user
     passport.deserializeUser(function(user, done) {
-        console.log('user serialized');
+        console.log('user deserialized');
         done(null, user);
     });
 
@@ -37,10 +37,11 @@ module.exports = function(passport) {
 
         },
         function(req, token, refreshToken, profile, done) {
-
-            console.log('FacebookStrategy done');
-
-            return done(null, profile);
+            // asynchronous
+            process.nextTick(function() {
+                console.log('FacebookStrategy done');
+                return done(null, profile);
+            });
         }));
 
 
